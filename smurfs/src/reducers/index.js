@@ -1,4 +1,4 @@
-import { FETCHING_SMURFS_START, FETCHING_SMURFS_SUCCESS, POST_SMURF_START, POST_SMURF_SUCCESS } from '../actions';
+import { FETCHING_SMURFS_START, FETCHING_SMURFS_SUCCESS, POST_SMURF_START, POST_SMURF_SUCCESS, DELETE_SMURF_SUCCESS } from '../actions';
 
 const initialState = {
   smurfs: [],
@@ -31,6 +31,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         smurfs: [...state.smurfs, action.payload]
+      }
+    case DELETE_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload
       }
     default:
       return state
