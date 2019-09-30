@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getSmurfs } from '../actions';
 import Smurf from './Smurf';
 
 const Smurfs = ({ getSmurfs, isFetching, smurfs }) => {
+
   useEffect(() => {
     getSmurfs()
   }, [getSmurfs])
+
   return (
     <div>
       {smurfs.map(smurf => (
