@@ -23,5 +23,10 @@ export const postSmurf = smurf => dispatch => {
     .then(res => {
       console.log("post", res)
       dispatch({ type: POST_SMURF_SUCCESS, payload: res.data })
-    })
+    }).then(
+      axios.get('http://localhost:3333/smurfs')
+        .then(res => {
+          dispatch({ type: FETCHING_SMURFS_SUCCESS, payload: res.data })
+        })
+    )
 }
